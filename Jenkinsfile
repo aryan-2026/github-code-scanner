@@ -11,7 +11,7 @@ pipeline {
 
         stage('Security Scan') {
     steps {
-        sh '''
+        bat '''
             semgrep scan \
             --config auto \
             --json \
