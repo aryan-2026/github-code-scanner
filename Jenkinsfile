@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     stages {
-
         stage('Checkout') {
             steps {
                 checkout scm
@@ -10,14 +9,9 @@ pipeline {
         }
 
         stage('Security Scan') {
-    steps {
-        bat '''
-            semgrep scan \
-            --config auto \
-            --json \
-            --output semgrep-report.json .
-        '''
-    }
-}
+            steps {
+                bat 'python -m semgrep scan --config auto --json --output semgrep-report.json .'
+            }
+        }
     }
 }
