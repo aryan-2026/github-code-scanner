@@ -11,7 +11,7 @@ pipeline {
 
         stage('Test Jenkins') {
             steps {
-                sh 'echo "Jenkins is working!"'
+                bat 'echo "Jenkins is working!"'
             }
         }
     }
