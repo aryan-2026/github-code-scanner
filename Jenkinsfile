@@ -9,10 +9,15 @@ pipeline {
             }
         }
 
-        stage('Test Jenkins') {
-            steps {
-                bat 'echo "Jenkins is working!"'
-            }
-        }
+        stage('Security Scan') {
+    steps {
+        sh '''
+            semgrep scan \
+            --config auto \
+            --json \
+            --output semgrep-report.json .
+        '''
+    }
+}
     }
 }
