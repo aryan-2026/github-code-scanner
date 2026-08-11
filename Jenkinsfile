@@ -10,8 +10,7 @@ pipeline {
 
         stage('Security Scan') {
             steps {
-                bat 'semgrep scan --config auto --json --output semgrep-report.json .'
-            }
+                bat 'C:\\Python314\\Scripts\\semgrep.exe scan --config auto --json --output semgrep-report.json .'            }
         }
     }
 }
